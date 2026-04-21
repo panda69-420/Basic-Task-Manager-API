@@ -1,6 +1,12 @@
 from flask import Flask
 from models import db
 from routes import task_routes
+import os
+
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv(
+    'DATABASE_URL', 'sqlite:///tasks.db'
+)
+
 
 app = Flask(__name__)
 
